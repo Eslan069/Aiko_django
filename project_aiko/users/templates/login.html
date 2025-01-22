@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -5,12 +6,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="/static/assets/css/style.css">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
 </head>
 
 <body>
     <section>
-        <form action="{% url 'login' %}">
+        <form action="{% url 'login' %}" method="post">{% csrf_token %}
             <h1>Login</h1>
             <div class="inputbox">
                 <ion-icon name="mail-outline"></ion-icon>
@@ -20,15 +21,15 @@
             <div class="inputbox">
                 <ion-icon name="lock-closed-outline"></ion-icon>
                 <input type="password" required>
-                <label for="">Password</label>
+                <label for="">Senha</label>
             </div>
             <div class="forget">
-                <label for=""><input type="checkbox">Remember Me</label>
-                <a href="#">Forget Password</a>
+                <label for=""><input type="checkbox">Lembre de mim</label>
+                <a href="#">Esqueci a senha</a>
             </div>
             <button>Log in</button>
             <div class="register">
-                <p>Don't have a account <a href="#">Register</a></p>
+                <p>Não tem uma conta <a href="#">Registrar</a></p>
             </div>
         </form>
     </section>

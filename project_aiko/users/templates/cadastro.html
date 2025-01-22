@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -5,12 +6,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
-    <link rel="stylesheet" href="/static/assets/css/style.css">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
 </head>
 
 <body>
     <section>
-        <form action="{% url 'cadastro' %}">
+        <form action="{% url 'cadastro' %}" method="POST">{% csrf_token %}
             <h1>Cadastra-se</h1>
             <div class="inputbox">
                 <ion-icon name="mail-outline"></ion-icon>
@@ -20,16 +21,14 @@
             <div class="inputbox">
                 <ion-icon name="lock-closed-outline"></ion-icon>
                 <input type="password" placeholder="Senhe..." name="senhe" required>
-                <label for="">Password</label>
+                <label for="">Senha</label>
             </div>
-            <div class="forget">
-                <label for=""><input type="checkbox">Remember Me</label>
-                <a href="#">Forget Password</a>
+            <div class="inputbox">
+                <ion-icon name="lock-closed-outline"></ion-icon>
+                <input type="password" placeholder="Senhe..." name="senhe" required>
+                <label for="">Senha</label>
             </div>
             <button>Cadastra-se</button>
-            <div class="register">
-                <p>Don't have a account <a href="#">Register</a></p>
-            </div>
         </form>
     </section>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
